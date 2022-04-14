@@ -22,11 +22,12 @@ export const searchRepositories = (term: string) => {
       const names = data.objects.map((result: any) => {
         return result.package.name;
       });
+
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_SUCCESS,
         payload: names,
       });
-    } catch (err: any) {
+    } catch (err) {
       dispatch({
         type: ActionType.SEARCH_REPOSITORIES_ERROR,
         payload: err.message,
